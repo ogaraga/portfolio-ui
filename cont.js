@@ -62,32 +62,9 @@ const submit = document.getElementById("forms");
 const locationz = document.querySelector('#selectme');
 
 
-submit.addEventListener("submit", async (event) => {
+submit.addEventListener("submit",(event) => {
     event.preventDefault();
 
-    
-        const options = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                fullName: fullName.value,
-                email: email.value,
-                age: age.value,
-                locationz: locationz.value,
-                message: message.value,
-                telephone: telephone.value,
-                female: female.checked,
-                male: male.checked
-            })
-        }
-
-        const url = 'http://localhost:5000/message'
-        
-        const response = await fetch(url, options)
-        if (response.ok) {
-            const jsonRes = await response.json();
-            console.log(jsonRes)
-        };
     
     if (message.value != "" && (male.checked && !female.checked || female.checked && !male.checked)) {
         setTimeout(() => {
